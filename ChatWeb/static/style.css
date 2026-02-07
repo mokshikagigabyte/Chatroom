@@ -1,0 +1,517 @@
+/* Global background with animated gradient */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(-45deg, #1f1c2c, #928dab, #00c6ff, #0072ff);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
+}
+
+/* Gradient animation */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Auth Section container */
+#auth-section {
+  animation: fadeInMagic 1.5s ease forwards;
+}
+
+/* Magical fade-in animation */
+@keyframes fadeInMagic {
+  0% { opacity: 0; transform: scale(0.8) translateY(50px); filter: blur(10px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+}
+
+/* Card style for login/register */
+#loginFormWrapper, #registerFormWrapper {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 16px;
+  padding: 30px;
+  width: 340px;
+  box-shadow: 0 0 25px rgba(0,255,255,0.4);
+  color: #fff;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+#loginFormWrapper:hover, #registerFormWrapper:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 35px rgba(0,255,255,0.6);
+}
+
+/* Inputs */
+form input, form select {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 1em;
+  transition: box-shadow 0.3s ease;
+}
+
+form input:focus, form select:focus {
+  outline: none;
+  box-shadow: 0 0 15px #00ffff;
+}
+
+/* Buttons */
+form button {
+  width: 95%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+form button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00c6ff;
+}
+
+/* Links */
+form p a {
+  color: #00ffff;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+form p a:hover {
+  text-decoration: underline;
+}
+
+/* Forgot Password Modal */
+#forgotPassModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0,255,255,0.5);
+  animation: modalPop 0.5s ease forwards;
+}
+
+@keyframes modalPop {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+/* Dashboard background with animated gradient */
+#dashboard {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(-45deg, #3a1c71, #d76d77, #ffaf7b, #6a11cb);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: #fff;
+  padding: 20px;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Header with glowing user info */
+#dashboard header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+  padding: 10px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+
+/* Room cards container */
+#roomsList ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+/* Room card with flip animation */
+#roomsList li {
+  width: 200px;
+  height: 120px;
+  perspective: 1000px;
+}
+
+.room-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.room-card:hover {
+  transform: rotateY(180deg);
+}
+
+/* Front side */
+.room-front, .room-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgba(255,255,255,0.4);
+}
+
+/* Front side style */
+.room-front {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  color: #fff;
+}
+
+/* Back side style */
+.room-back {
+  background: rgba(0,0,0,0.6);
+  color: #ffaf7b;
+  transform: rotateY(180deg);
+}
+
+/* Join/Create Room forms */
+#room-section, #create-room-section {
+  margin-top: 20px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+
+#room-section h3, #create-room-section h3 {
+  margin-bottom: 10px;
+  color: #fff;
+  text-shadow: 0 0 10px #ffaf7b;
+}
+
+#roomForm input, #createRoomForm input {
+  width: 90%;
+  padding: 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+#roomForm button, #createRoomForm button {
+  width: 95%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #ffaf7b, #d76d77);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#roomForm button:hover, #createRoomForm button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ffaf7b;
+}
+
+/* Particle container */
+#fairyParticles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* particles won't block clicks */
+  overflow: hidden;
+  z-index: -1; /* behind everything */
+}
+
+/* Individual particles */
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #fff 0%, #ffaf7b 70%, transparent 100%);
+  border-radius: 50%;
+  animation: floatParticle 12s linear infinite;
+  opacity: 0.8;
+}
+
+/* Particle floating animation */
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-200px) scale(1.3);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-400px) scale(0.8);
+    opacity: 0;
+  }
+}
+/* Chat Section Layout */
+#chat-section {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "messages users"
+    "footer footer";
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  background: linear-gradient(135deg, #1f1c2c, #928dab, #00c6ff, #0072ff);
+  background-size: 400% 400%;
+  animation: chatBG 20s ease infinite;
+  color: #fff;
+}
+
+@keyframes chatBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Header */
+#chat-section header {
+  grid-area: header;
+  padding: 10px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgba(255,255,255,0.3);
+}
+
+/* Messages area */
+#messages {
+  grid-area: messages;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Chat bubbles */
+.message.chat {
+  align-self: flex-start;
+  background: rgba(0,255,255,0.2);
+  border-radius: 12px;
+  padding: 10px;
+  margin: 5px;
+  box-shadow: 0 0 10px #00ffff;
+  animation: bubblePop 0.5s ease;
+}
+
+.message.private {
+  align-self: flex-start;
+  background: rgba(255,105,180,0.2);
+  border-radius: 12px;
+  padding: 10px;
+  margin: 5px;
+  box-shadow: 0 0 10px #ff69b4;
+  animation: bubblePop 0.5s ease;
+}
+
+.message.system {
+  align-self: center;
+  font-style: italic;
+  color: #ccc;
+  margin: 5px;
+}
+
+@keyframes bubblePop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* DM Section */
+#dmSection {
+  grid-area: messages;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 10px;
+  margin-top: 10px;
+  animation: slideIn 0.8s ease forwards;
+}
+
+@keyframes slideIn {
+  0% { transform: translateX(100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+/* Users Sidebar */
+#users {
+  grid-area: users;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 10px;
+  list-style: none;
+  overflow-y: auto;
+}
+
+#users li {
+  margin: 8px 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+#users li:hover {
+  background: rgba(0,255,255,0.2);
+  box-shadow: 0 0 10px #00ffff;
+}
+
+/* Footer */
+#chat-section footer {
+  grid-area: footer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+#recipient, #input {
+  flex: 1;
+  margin: 0 5px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+#send, #dmToggle {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+#send:hover, #dmToggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00c6ff;
+}
+
+/* Profile Section */
+#profile-section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  background-size: 400% 400%;
+  animation: profileBG 15s ease infinite;
+  color: #fff;
+}
+
+@keyframes profileBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Profile Card */
+#profileForm {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 16px;
+  padding: 30px;
+  width: 360px;
+  box-shadow: 0 0 25px rgba(255,255,255,0.4);
+  text-align: center;
+  animation: fadeInMagic 1.2s ease forwards;
+}
+
+/* Avatar preview */
+#avatarUrl {
+  margin-bottom: 15px;
+}
+
+#profileForm::before {
+  content: "✨";
+  font-size: 2em;
+  display: block;
+  margin-bottom: 10px;
+  animation: sparkle 2s infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Inputs */
+#profileForm input {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+#profileForm input:focus {
+  outline: none;
+  box-shadow: 0 0 15px #00ffff;
+}
+
+/* Button */
+#profileForm button {
+  width: 95%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #ffaf7b, #d76d77);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+#profileForm button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ffaf7b;
+}
+
+.hidden {
+  display: none !important;
+}
